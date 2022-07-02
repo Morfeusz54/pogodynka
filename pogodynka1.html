@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pogoda</title>
+  </head>
+  <body>
+    
+    
+    
+  <button id="przycisk1">wybierzMiasto</button>
+  
+  <div>Miasto: <span class="miasto"></span></div>
+
+   <p> <button id="przycisk">Pobierz prognozę pogody!</button></p>
+
+    <h2>Pogoda aktualna</h2>
+    <div class="pogodaAktualna">
+      <div>Temperatura: <span class="temp"></span></div>
+      <div>Zachmurzenie: <span class="zachmurzenie"></span></div>
+      <div>Wiatr Predkość: <span class="predkosc"></span></div>
+      <div>Wiatr Kierunek: <span class="kierunek"></span></div>
+      <div>Wiatr Kierunek Słownie: <span class="slownie"></span></div>
+      <div>Opis: <span class="opis"></span></div>
+      <div>Ikona: <span class="ikonka"></span></div>
+      <div>Wschód Słońca: <span class="wschod"></span></div>
+      <div>Zachód Słońca: <span class="zachod"></span></div>
+    </div>
+    <h2>Prognoza na jutro</h2>
+    <div class="pogodaJutro">
+      <div>Temperatura: <span class="temp"></span></div>
+      <div>Zachmurzenie: <span class="zachmurzenie"></span></div>
+      <div>Wiatr Predkość: <span class="predkosc"></span></div>
+      <div>Wiatr Kierunek: <span class="kierunek"></span></div>
+      <div>Wiatr Kierunek Słownie: <span class="slownie"></span></div>
+      <div>Opis: <span class="opis"></span></div>
+      <div>Ikona: <span class="ikonka"></span></div>
+      <div>Wschód Słońca: <span class="wschod"></span></div>
+      <div>Zachód Słońca: <span class="zachod"></span></div>
+    </div>
+    <h2>Prognoza na pojutrze</h2>
+    <div class="pogodaPojutrze">
+      <div>Temperatura: <span class="temp"></span></div>
+      <div>Zachmurzenie: <span class="zachmurzenie"></span></div>
+      <div>Wiatr Predkość: <span class="predkosc"></span></div>
+      <div>Wiatr Kierunek: <span class="kierunek"></span></div>
+      <div>Wiatr Kierunek Słownie: <span class="slownie"></span></div>
+      <div>Opis: <span class="opis"></span></div>
+      <div>Ikona: <span class="ikonka"></span></div>
+      <div>Wschód Słońca: <span class="wschod"></span></div>
+      <div>Zachód Słońca: <span class="zachod"></span></div>
+    </div>
+
+    <script>
+      let elementDzisTemp = document.querySelector(".pogodaAktualna .temp");
+      let elementDzisZachmurzenie = document.querySelector(".pogodaAktualna .zachmurzenie");
+      let elementDzisWiatrPre = document.querySelector(".pogodaAktualna .predkosc");
+      let elementDzisWiatrKie = document.querySelector(".pogodaAktualna .kierunek");
+      let elementDzisSlownie =document.querySelector(".pogodaAktualna.slownie");
+      let elementDzisOpis =document.querySelector(".pogodaAktualna.opis");
+      let elementDzisIkona =document.querySelector(".pogodaAktualna.ikonka");
+      let elementDzisWchSlo = document.querySelector(".pogodaAktualna .wschod");
+      let elementDzisZachSlo = document.querySelector(".pogodaAktualna .zachod");
+     
+      let elementJutroTem = document.querySelector(".pogodaJutro .temp");
+      let elementJutroZachmurzeni = document.querySelector(".pogodaJutro .zachmurzenie");
+      let elementDzisWiatrPred = document.querySelector(".pogodaJutro .predkosc");
+      let elementDzisWiatrKier = document.querySelector(".pogodaJutro .kierunek");
+      let elementDzisSlowni =document.querySelector(".pogodaJutro.slownie");
+      let elementDzisOpi =document.querySelector(".pogodaJutro.opis");
+      let elementDzisIkon =document.querySelector(".pogodaJutro.ikonka")
+      let elementDzisWchSlon = document.querySelector(".pogodaJutro .wschod");
+      let elementDzisZachSlon = document.querySelector(".pogodaJutro .zachod");
+     
+      let elementJutroTemp = document.querySelector(".pogodaPojutrze .temp");
+      let elementJutroZachmurzen = document.querySelector(".pogodaPojutrze .zachmurzenie");
+      let elementDzisWiatrPredk = document.querySelector(".pogodaPojutrze .predkosc");
+      let elementDzisWiatrKieri = document.querySelector(".pogodaPojutrze .kierunek");
+      let elementDzisSlown =document.querySelector(".pogodaPojutrze.slownie");
+      let elementDzisOp =document.querySelector(".pogodaPojutrze.opis");
+      let elementDzisIko =document.querySelector(".pogodaPojutrze.ikonka");
+      let elementDzisWchSloni = document.querySelector(".pogodaPojutrze .wschod");
+      let elementDzisZachSloni = document.querySelector(".pogodaPojutrze .zachod");
+     
+
+      let elementPrzycisk = document.querySelector("#przycisk");
+      let elementMiasto = document.querySelector("nazwa.miasto");
+      
+      function rozpakujDane(dane) {
+
+        document.querySelector(".pogodaAktualna .temp").innerHTML = dane.teraz.temperatura;
+        document.querySelector(".pogodaAktualna .zachmurzenie").innerHTML = dane.teraz.zachmurzenie;
+        document.querySelector(".pogodaAktualna .predkosc").innerHTML = dane.teraz.wiatrPrędkość;
+        document.querySelector(".pogodaAktualna .kierunek").innerHTML = dane.teraz.wiatrKierunek;
+        document.querySelector(".pogodaAktualna .slownie").innerHTML = dane.teraz.wiatrKierunekSłownie;
+        document.querySelector(".pogodaAktualna .opis").innerHTML = dane.teraz.opis;
+        document.querySelector(".pogodaAktualna .ikonka").innerHTML = dane.teraz.ikonka;
+        document.querySelector(".pogodaAktualna .wschod").innerHTML = dane.teraz.wschódSłońca;
+        document.querySelector(".pogodaAktualna .zachod").innerHTML = dane.teraz.zachódSłońca;
+
+        document.querySelector(".pogodaJutro .temp").innerHTML = dane.prognoza.jutro.temperatura;
+        document.querySelector(".pogodaJutro .zachmurzenie").innerHTML = dane.prognoza.jutro.zachmurzenie;
+        document.querySelector(".pogodaJutro .predkosc").innerHTML = dane.prognoza.jutro.wiatrPrędkość;
+        document.querySelector(".pogodaJutro .kierunek").innerHTML = dane.prognoza.jutro.wiatrKierunek;
+        document.querySelector(".pogodaJutro .slownie").innerHTML = dane.prognoza.jutro.wiatrKierunekSłownie;
+        document.querySelector(".pogodaJutro .opis").innerHTML = dane.prognoza.jutro.opis;
+        document.querySelector(".pogodaJutro .ikonka").innerHTML = dane.prognoza.jutro.ikonka;
+        document.querySelector(".pogodaJutro .wschod").innerHTML = dane.prognoza.jutro.wschódSłońca;
+        document.querySelector(".pogodaJutro .zachod").innerHTML = dane.prognoza.jutro.zachódSłońca;
+
+        document.querySelector(".pogodaPojutrze .temp").innerHTML = dane.prognoza.pojutrze.temperatura;
+        document.querySelector(".pogodaPojutrze .zachmurzenie").innerHTML = dane.prognoza.pojutrze.zachmurzenie;
+        document.querySelector(".pogodaPojutrze .predkosc").innerHTML = dane.prognoza.pojutrze.wiatrPrędkość;
+        document.querySelector(".pogodaPojutrze .kierunek").innerHTML = dane.prognoza.pojutrze.wiatrKierunek;
+        document.querySelector(".pogodaPojutrze .slownie").innerHTML = dane.prognoza.pojutrze.wiatrKierunekSłownie;
+        document.querySelector(".pogodaPojutrze .opis").innerHTML = dane.prognoza.pojutrze.opis;
+        document.querySelector(".pogodaPojutrze .ikonka").innerHTML = dane.prognoza.pojutrze.ikonka;
+        document.querySelector(".pogodaPojutrze .wschod").innerHTML = dane.prognoza.pojutrze.wschódSłońca;
+        document.querySelector(".pogodaPojutrze .zachod").innerHTML = dane.prognoza.pojutrze.zachódSłońca;
+
+      }
+
+      
+
+      function odbierzDane(response) {
+        response.json()
+          .then(rozpakujDane);
+        
+      }
+
+      function pobierzDane() {
+        // ...
+        fetch('http://weather-api-alpha.herokuapp.com/pogoda/prognoza?miasto=białystok').then(odbierzDane);
+        
+    
+    }  
+
+    function wybierzMiasto(nazwa)
+    {
+      document.querySelector(".miasto .geo").innerHTML = nazwa.miasto;
+       
+    }
+      function wybierz() {
+        response.json()
+        .then (wybierzMiasto);
+      }
+
+    function miasto ()
+    {
+      fetch ('http://weather-api-alpha.herokuapp.com/pogoda/miasta').then (wybierz);
+    }
+  
+      document.querySelector("#przycisk").addEventListener("click", pobierzDane);
+
+      document.querySelector("#przycisk1").addEventListener("click", miasto);
+
+
+    </script>
+  </body>
+</html>
